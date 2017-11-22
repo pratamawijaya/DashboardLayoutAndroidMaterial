@@ -1,4 +1,4 @@
-package pratamawijaya.com.dashboardlayout
+package pratamawijaya.com.dashboardlayout.model
 
 /**
  * Created by pratama on 11/22/17.

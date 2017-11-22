@@ -31,7 +31,9 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.github.nitrico.lastadapter:lastadapter:2.2.2'
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'me.relex:circleindicator:1.2.2@aar'
 
+    implementation 'com.android.support:support-v4:26.1.0'
     kapt 'com.android.databinding:compiler:3.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

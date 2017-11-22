@@ -23,13 +23,24 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <!--content di toolbar-->
-            <ImageView
-                android:id="@+id/imgContent"
+            <RelativeLayout
+                android:id="@+id/containerBanner"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/jerapah"/>
+                android:layout_height="220dp">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"/>
+
+            </RelativeLayout>
 
             <!--toolbar-->
             <android.support.v7.widget.Toolbar

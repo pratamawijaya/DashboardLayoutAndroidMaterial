@@ -6,7 +6,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pratamawijaya.com.dashboardlayout.MainActivity">
+    tools:context="pratamawijaya.com.dashboardlayout.ui.MainActivity">
 
     <!--Content Layout-->
     <include layout="@layout/layout_content"/>

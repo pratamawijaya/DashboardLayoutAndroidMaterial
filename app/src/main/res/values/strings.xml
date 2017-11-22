@@ -6,4 +6,7 @@
     <string name="nav_sub_header">Sub Header</string>
     <string name="nav_sub_item_1">Sub Item 1</string>
     <string name="nav_sub_item_2">Sub Item 2</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

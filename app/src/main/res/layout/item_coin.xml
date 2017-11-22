@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="pratamawijaya.com.dashboardlayout.Coin"/>
+            type="pratamawijaya.com.dashboardlayout.model.Coin"/>
     </data>
 
     <android.support.v7.widget.CardView
