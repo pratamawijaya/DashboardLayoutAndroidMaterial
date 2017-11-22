@@ -1,17 +1,17 @@
 package pratamawijaya.com.dashboardlayout
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v4.view.GravityCompat
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
 import android.widget.Toast
-import com.github.nitrico.lastadapter.LastAdapter
-import com.github.nitrico.lastadapter.Type
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_content.appBarLayout
 import kotlinx.android.synthetic.main.layout_content.collapsingToolbar
 import kotlinx.android.synthetic.main.layout_content.imgContent
-import kotlinx.android.synthetic.main.layout_content.rvContent
 import kotlinx.android.synthetic.main.layout_content.toolbar
-import pratamawijaya.com.dashboardlayout.databinding.ItemCoinBinding
+import pratamawijaya.com.dashboardlayout.fragment.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,9 +21,23 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         setupAppBarLayout()
-        setupRecyclerView()
+        setupNavigationView()
+        setupContent(HomeFragment())
+    }
 
-        setupContent()
+    private fun setupNavigationView() {
+        val toggle = ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        navigationView.setNavigationItemSelectedListener { it ->
+            when (it.itemId) {
+                R.id.nav_home -> Toast.makeText(this@MainActivity, "Nav home", Toast.LENGTH_SHORT).show()
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            return@setNavigationItemSelectedListener true
+        }
     }
 
     private fun setupAppBarLayout() {
@@ -36,37 +50,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupContent() {
-        val listOfCoin = listOf(
-                Coin("Bitcoin", R.drawable.ic_bitcoin),
-                Coin("Etherium", R.drawable.ic_etherium),
-                Coin("Litecoin", R.drawable.ic_litecoin),
-                Coin("Bitcoin", R.drawable.ic_bitcoin),
-                Coin("Etherium", R.drawable.ic_etherium),
-                Coin("Litecoin", R.drawable.ic_litecoin),
-                Coin("Bitcoin", R.drawable.ic_bitcoin),
-                Coin("Etherium", R.drawable.ic_etherium),
-                Coin("Litecoin", R.drawable.ic_litecoin),
-                Coin("Bitcoin", R.drawable.ic_bitcoin),
-                Coin("Etherium", R.drawable.ic_etherium),
-                Coin("Litecoin", R.drawable.ic_litecoin),
-                Coin("Bitcoin", R.drawable.ic_bitcoin),
-                Coin("Etherium", R.drawable.ic_etherium),
-                Coin("Litecoin", R.drawable.ic_litecoin),
-                Coin("Bitcoin", R.drawable.ic_bitcoin),
-                Coin("Etherium", R.drawable.ic_etherium),
-                Coin("Litecoin", R.drawable.ic_litecoin)
-        )
-        LastAdapter(listOfCoin, BR.item)
-                .map<Coin>(Type<ItemCoinBinding>(R.layout.item_coin).onClick {
-                    Toast.makeText(this@MainActivity, "${it.binding.item?.name} pos ${it.adapterPosition}", Toast.LENGTH_SHORT).show()
-                })
-                .into(rvContent)
+    private fun setupContent(fragment: Fragment) {
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit()
     }
 
-    private fun setupRecyclerView() {
-        rvContent.apply {
-            layoutManager = GridLayoutManager(this@MainActivity, 2)
-        }
-    }
 }
