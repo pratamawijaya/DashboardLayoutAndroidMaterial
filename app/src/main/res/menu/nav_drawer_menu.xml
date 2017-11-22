@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/nav_home"/>
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_error_about_black_24dp"
+            android:title="@string/nav_about"/>
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/nav_settings"/>
+
+        <item
+            android:id="@+id/navigation_subheader"
+            android:title="@string/nav_sub_header">
+            <menu>
+                <item
+                    android:id="@+id/navigation_sub_item_1"
+                    android:icon="@drawable/ic_error_about_black_24dp"
+                    android:title="@string/nav_sub_item_1"/>
+                <item
+                    android:id="@+id/navigation_sub_item_2"
+                    android:icon="@drawable/ic_error_about_black_24dp"
+                    android:title="@string/nav_sub_item_2"/>
+            </menu>
+        </item>
+    </group>
+</menu>
