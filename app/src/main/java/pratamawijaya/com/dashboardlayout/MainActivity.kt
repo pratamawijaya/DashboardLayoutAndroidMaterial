@@ -3,6 +3,7 @@ package pratamawijaya.com.dashboardlayout
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
+import android.widget.Toast
 import com.github.nitrico.lastadapter.LastAdapter
 import com.github.nitrico.lastadapter.Type
 import kotlinx.android.synthetic.main.layout_content.appBarLayout
@@ -57,7 +58,9 @@ class MainActivity : AppCompatActivity() {
                 Coin("Litecoin", R.drawable.ic_litecoin)
         )
         LastAdapter(listOfCoin, BR.item)
-                .map<Coin>(Type<ItemCoinBinding>(R.layout.item_coin))
+                .map<Coin>(Type<ItemCoinBinding>(R.layout.item_coin).onClick {
+                    Toast.makeText(this@MainActivity, "${it.binding.item?.name} pos ${it.adapterPosition}", Toast.LENGTH_SHORT).show()
+                })
                 .into(rvContent)
     }
 
