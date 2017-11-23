@@ -23,3 +23,29 @@ fun sampleDataCoin(): List<Coin> = listOf(
         Coin("Etherium", R.drawable.ic_etherium),
         Coin("Litecoin", R.drawable.ic_litecoin)
 )
+
+
+fun sampleDataItem(): List<Item> = listOf(
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium),
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium),
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium),
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium),
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium),
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium),
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium),
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium),
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium),
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium),
+        Item("Bitcoin", "Bitcoin decriptions", R.drawable.ic_bitcoin),
+        Item("Etherium", "Etherium decriptions", R.drawable.ic_etherium)
+)

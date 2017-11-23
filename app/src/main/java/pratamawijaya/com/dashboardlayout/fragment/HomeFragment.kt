@@ -31,5 +31,11 @@ class HomeFragment : Fragment() {
         rvContent.apply {
             layoutManager = GridLayoutManager(context, 2)
         }
+
+        getMainImpl().setBannerImage(R.drawable.jerapah)
+    }
+
+    fun getMainImpl(): MainActivityImpl{
+        return activity as MainActivityImpl
     }
 }

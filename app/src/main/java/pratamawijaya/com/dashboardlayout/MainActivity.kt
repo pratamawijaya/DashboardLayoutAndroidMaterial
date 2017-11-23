@@ -5,15 +5,15 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_content.appBarLayout
 import kotlinx.android.synthetic.main.layout_content.collapsingToolbar
 import kotlinx.android.synthetic.main.layout_content.imgContent
 import kotlinx.android.synthetic.main.layout_content.toolbar
 import pratamawijaya.com.dashboardlayout.fragment.HomeFragment
+import pratamawijaya.com.dashboardlayout.fragment.ViewPagerFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainActivityImpl {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         setupAppBarLayout()
         setupNavigationView()
-        setupContent(HomeFragment())
+        setFragment(HomeFragment())
     }
 
     private fun setupNavigationView() {
@@ -33,7 +33,8 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
         navigationView.setNavigationItemSelectedListener { it ->
             when (it.itemId) {
-                R.id.nav_home -> Toast.makeText(this@MainActivity, "Nav home", Toast.LENGTH_SHORT).show()
+                R.id.nav_pager -> setFragment(ViewPagerFragment())
+                R.id.nav_home -> setFragment(HomeFragment())
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             return@setNavigationItemSelectedListener true
@@ -47,14 +48,19 @@ class MainActivity : AppCompatActivity() {
             } else {
                 collapsingToolbar.title = ""
             }
+
         }
     }
 
-    private fun setupContent(fragment: Fragment) {
+    private fun setFragment(fragment: Fragment) {
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit()
+    }
+
+    override fun setBannerImage(imgRes: Int) {
+        imgContent.loadImage(imgRes)
     }
 
 }
