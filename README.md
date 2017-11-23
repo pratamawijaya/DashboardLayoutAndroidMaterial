@@ -1,0 +1,1 @@
+# Example collapsing toolbar layout
